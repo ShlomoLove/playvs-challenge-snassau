@@ -25,5 +25,9 @@ The user can simulate each match by clicking the button to simulate a winner. Th
 
 If you click on a team name, the pertinent information for that team will appear, which includes name, logo, ranking, wins, losses and CURRENT players. 
 
-Once all the games have been simulated a modal will appear celebrating the winner of the tournament. 
+Once all the games have been simulated a modal will appear celebrating the winner of the tournament.
+
+##DEMO
+
+![]()
 
