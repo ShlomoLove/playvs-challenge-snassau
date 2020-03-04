@@ -6,6 +6,12 @@ A Tournament Challenge Using Open API
 
 In the project directory, you can run:
 
+### `npm install`
+
+This will install all the Node Modules.
+
+Then... 
+
 ### `yarn build` or `npm run build`
 
 Builds the app for production to the `build` folder.<br />
