@@ -26,7 +26,8 @@ const StyledTeam = styled.div`
   background: ${props => props.themeColor === 'won' ? '#008080' : 'rgb(125, 125, 125)'};
   color: white;
   &:hover{
-    cursor: pointer; 
+    cursor: pointer;
+    background: ${props => props.themeColor === 'won' ? 'rgb(0, 160, 160)' : 'rgb(80, 80, 80)'};  
   }
 `
 
@@ -84,10 +85,11 @@ const MatchPlay = props => {
           {seeModal ? (<TeamModal name={teamA[1].name} logo={teamA[1].logo_url} rating={teamA[1].rating} wins={teamA[1].wins} losses={teamA[1].losses} players={teamA[1].players}/>) : null}
         </StyledTeam>
         vs
-        <StyledTeam themeColor={teamB[1][match]}>
+        <StyledTeam themeColor={teamB[1][match]} onClick={()=>setModal(true)} onMouseLeave={()=>setModal(false)}>
           <StyledSeeding>{teamB[1].seed}</StyledSeeding> 
           <StyledTeamImage src={teamB[1].logo_url}/>
           <StyledTeamName themeColor={teamB[1][match]}>{teamB[1].name}</StyledTeamName>
+          {seeModal ? (<TeamModal name={teamB[1].name} logo={teamB[1].logo_url} rating={teamB[1].rating} wins={teamB[1].wins} losses={teamB[1].losses} players={teamB[1].players}/>) : null}
         </StyledTeam>
       </StyledMatch>
       {matchWinner === undefined ?
