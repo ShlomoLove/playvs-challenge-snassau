@@ -78,7 +78,6 @@ class TourneyMainPage extends Component {
       teamPoolIndexed[index+1] = team;
     })
     const teamNum = this.getBalancedBracket(totalTeams)
-    console.log (teamNum, 'roundNum')
     const roundNum = Math.log(teamNum)/Math.log(2)
     let roundArray = new Array(roundNum)
     for (let x =0; x < roundNum; x++) {
