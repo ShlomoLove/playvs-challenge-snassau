@@ -71,29 +71,33 @@ const MatchPlay = props => {
     teamB,
     simulateWinner,
     match,
-    matchWinner,
+    completeGame,
+    gamesCompleted
   } = props;
-  const [seeModal, setModal] = useState(false)
+
+  const [seeModalA, setModalA] = useState(false)
+  const [seeModalB, setModalB] = useState(false)
+  const [seeButton, setButton] = useState(true)
   
   return (
     <StyledMatchContainer>
       <StyledMatch>
-        <StyledTeam themeColor={teamA[1][match]} onClick={()=>setModal(true)} onMouseLeave={()=>setModal(false)}>
+        <StyledTeam themeColor={teamA[1][match]} onClick={()=> setModalA(true)} onMouseLeave={()=> setModalA(false)}>
           <StyledSeeding>{teamA[1].seed}</StyledSeeding> 
           <StyledTeamImage src={teamA[1].logo_url}/>
           <StyledTeamName themeColor={teamA[1][match]}>{teamA[1].name}</StyledTeamName>
-          {seeModal ? (<TeamModal name={teamA[1].name} logo={teamA[1].logo_url} rating={teamA[1].rating} wins={teamA[1].wins} losses={teamA[1].losses} players={teamA[1].players}/>) : null}
+          {seeModalA ? (<TeamModal name={teamA[1].name} logo={teamA[1].logo_url} rating={teamA[1].rating} wins={teamA[1].wins} losses={teamA[1].losses} players={teamA[1].players}/>) : null}
         </StyledTeam>
         vs
-        <StyledTeam themeColor={teamB[1][match]} onClick={()=>setModal(true)} onMouseLeave={()=>setModal(false)}>
+        <StyledTeam themeColor={teamB[1][match]} onClick={()=> setModalB(true)} onMouseLeave={()=> setModalB(false)}>
           <StyledSeeding>{teamB[1].seed}</StyledSeeding> 
           <StyledTeamImage src={teamB[1].logo_url}/>
           <StyledTeamName themeColor={teamB[1][match]}>{teamB[1].name}</StyledTeamName>
-          {seeModal ? (<TeamModal name={teamB[1].name} logo={teamB[1].logo_url} rating={teamB[1].rating} wins={teamB[1].wins} losses={teamB[1].losses} players={teamB[1].players}/>) : null}
+          {(seeModalB && teamB[1].name !== 'BYE') ? (<TeamModal name={teamB[1].name} logo={teamB[1].logo_url} rating={teamB[1].rating} wins={teamB[1].wins} losses={teamB[1].losses} players={teamB[1].players}/>) : null}
         </StyledTeam>
       </StyledMatch>
-      {matchWinner === undefined ?
-          <StyledButton onClick={()=>simulateWinner(teamA, teamB, match)}>PLAY MATCH</StyledButton> 
+      {seeButton ?
+          <StyledButton onClick={()=> {simulateWinner(teamA, teamB, match, gamesCompleted+1);setButton(false); completeGame(gamesCompleted+1)}}> PLAY MATCH </StyledButton> 
           : null}
     </StyledMatchContainer>
   )

@@ -40,13 +40,13 @@ const StyledImage = styled.img`
 
 
 const WinnerModal = props => {
-  const {match15Winner} = props
+  const {tourneyWinner} = props
 
   return (
     <StyledModalContainer>
       <StyledTitle>WINNER</StyledTitle>
-      <StyledImage src={match15Winner.logo_url}/>
-      <StyledName> {match15Winner.name}</StyledName>
+      <StyledImage src={tourneyWinner.logo_url}/>
+      <StyledName> {tourneyWinner.name}</StyledName>
     </StyledModalContainer>
   )
 }
