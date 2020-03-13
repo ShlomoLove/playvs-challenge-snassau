@@ -33,7 +33,7 @@ If you click on a team name, the pertinent information for that team will appear
 
 Once all the games have been simulated a modal will appear celebrating the winner of the tournament.
 
-##DEMO
+## DEMO
 
 ![](tournament_challenge.gif)
 
