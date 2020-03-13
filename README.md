@@ -35,5 +35,5 @@ Once all the games have been simulated a modal will appear celebrating the winne
 
 ## DEMO
 
-![](tournament_challenge.gif)
+![](tourneyBracket.gif)
 
